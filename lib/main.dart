@@ -10,20 +10,20 @@ class JogoForca extends StatefulWidget {
 
 class _JogoForcaState extends State<JogoForca> {
   List animais = ['macaco', 'tatu', 'jacare', 'coruja', 'boto'];
-  var imagem = 'images/step01.png';
+  var imagem = 'images/Frame 1.png';
   String? animalescolhido;
   var txtLetra = TextEditingController();
   List name = [];
   void testarLetra(letra) {
+    txtLetra.clear();
     for (var i = 0; i < animalescolhido!.length; i++) {
       if (letra == animalescolhido![i]) {
         setState(() {
           name[i] = letra;
-          txtLetra = TextEditingController();
         });
       } else {
         setState(() {
-          imagem = 'images/step02.png';
+          imagem = 'images/Frame 2.png';
         });
       }
     }
@@ -56,7 +56,7 @@ class _JogoForcaState extends State<JogoForca> {
               children: [
                 Expanded(
                   flex: 2,
-                  child: FittedBox(child: Image.asset(imagem)),
+                  child: Image(image: AssetImage(imagem)),
                 ),
                 Flexible(
                     flex: 1,
